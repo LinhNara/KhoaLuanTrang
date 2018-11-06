@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 103.1.210.79 -->
+	<!-- srv099999 -->
+	<bean id="myDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+ 		<property name="url" value="jdbc:mysql://localhost:3306/test?UseUnicode=true&amp;characterEncoding=utf8" /> 
+ 		<!-- <property name="url" value="jdbc:mysql://localhost:3306/meishiorder?UseUnicode=true&amp;characterEncoding=utf8" /> -->
+ 		<property name="username" value="root" /> 
+ 		<property name="password" value="123456" />
+	</bean>
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>entity.User</value> 
+<!-- 				Khai bao để hibernate map class User với bảng user -->
+<!-- 				Có nhieu bang trong entity thì nhiều entity.Bang ?-->
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

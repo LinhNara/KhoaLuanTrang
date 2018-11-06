@@ -1,0 +1,16 @@
+#header{
+	padding-bottom: 30px;
+	padding-top: 30px;
+	background-color: #ccc;
+}
+
+#right{
+	background-color: #eee;
+	hight: 300;
+	height: 100vh;
+}
+
+#left{
+	background-color: #aaa;
+	height: 100vh;
+}
